@@ -93,12 +93,7 @@ $( document ).ready(function() {
     //ALL OTHER CHARACTERS SHOULD BE MOVED TO ENEMIES AVAILABLE TO ATTACK
     $(".characters").click( function game() {
 //PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
-        // console.log(img.name);
-
-
-
-
-
+        console.log(  (this.name)  );
 
 
     });
