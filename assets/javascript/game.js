@@ -13,13 +13,26 @@ $(document).ready(function () {
         "background-repeat": "no-repeat",
         "background-size": "100vw 100vh"
     });
+    $("#game-container").css({
+        "background-color": "rgba(255,255,255,.5)",
+        "border-radius": "0.2em",
+        "width": "fit-content"
+    });
     $("#title").text("Star Wars RPG!");
+    
     $("#your-character").text("Your Character");
     $("#available-enemies").text("Enemies available to Attack");
     $("#fight-section").text("Fight Section");
     $("#attack-button").text("Attack");
     $("#defender").text("Defender");
-    $("h1").css('color', 'white');
+    $("h1").css('color', 'black');
+    $("#title").css({
+        'color': 'white',
+        "background-color": "rgba(0,0,0, .5)",
+        "border-radius": "0.2em",
+        "width": "fit-content",
+        "float": "right"
+    });
 
 
 
