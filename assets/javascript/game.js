@@ -7,19 +7,18 @@ $(document).ready(function () {
         "assets/images/R2D2.jpeg"
     ]
 
-    //PUTTING ALL INITIAL TEXT IN PLACE
+    //PUTTING ALL INITIAL TEXT & STYLING IN PLACE
     $('body,html').css({
         "background-image": 'url("assets/images/MilleniumBackground.jpg")',
         "background-repeat": "no-repeat",
         "background-size": "100vw 100vh"
-    });
+         });
     $("#game-container").css({
         "background-color": "rgba(255,255,255,.5)",
         "border-radius": "0.2em",
         "width": "fit-content"
-    });
+        });
     $("#title").text("Star Wars RPG!");
-    
     $("#your-character").text("Your Character");
     $("#available-enemies").text("Enemies available to Attack");
     $("#fight-section").text("Fight Section");
@@ -31,8 +30,8 @@ $(document).ready(function () {
         "background-color": "rgba(0,0,0, .5)",
         "border-radius": "0.2em",
         "width": "fit-content",
-        "float": "right"
-    });
+        'margin-right': '1em'
+        });
 
 
 
