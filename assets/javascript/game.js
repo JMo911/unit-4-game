@@ -37,58 +37,113 @@ $(document).ready(function () {
 
     //LOOP TO DISPLAY ALL CHARACTER IMAGES IN PIC-CONTAINER
 
-    for (i = 0; i < image_sources.length; i++) {
-        var pic_div = $("<img>");
-        pic_div.addClass("characters");
-        pic_div.attr({
-            "data-src": image_sources[i],
-            "src": image_sources[i],
-        });
-        $("#pic-container").append(pic_div);
-        pic_div.css({
-            'height': '150px',
-            'border': '0.05em black solid',
-            'margin': '0.3em'
-        })
+    // for (i = 0; i < image_sources.length; i++) {
+    //     var pic_div = $("<img>");
+    //     pic_div.addClass("characters");
+    //     pic_div.attr({
+    //         "data-src": image_sources[i],
+    //         "src": image_sources[i],
+    //     });
+    //     $("#pic-container").append(pic_div);
+    //     pic_div.css({
+    //         'height': '150px',
+    //         'border': '0.05em black solid',
+    //         'margin': '0.3em'
+    //     })
 
-    }
+    // }
+
 
     //MAKE THE DARTH MAUL OBJECT
-    var DarthMaul = $("img[data-src='assets/images/DarthMaul.jpeg']").attr({
-        "name": 'Darth Maul',
-        "healthpoints": '180',
-        "attackpower": '5',
-        "counterattackpower": '25'
-    });
+    // var DarthMaul = $("img[data-src='assets/images/DarthMaul.jpeg']").attr({
+    //     "name": 'Darth Maul',
+    //     "healthpoints": '180',
+    //     "attackpower": '5',
+    //     "counterattackpower": '25'
+    // });
 
 
     //MAKE THE HAN SOLO OBJECT
-    var HanSolo = $("img[data-src='assets/images/HanSolo.jpeg']").attr({
-        "name": 'Han Solo',
-        "healthpoints": '150',
-        "attackpower": '10',
-        "counterattackpower": '10'
-    });
+    // var HanSolo = $("img[data-src='assets/images/HanSolo.jpeg']").attr({
+    //     "name": 'Han Solo',
+    //     "healthpoints": '150',
+    //     "attackpower": '10',
+    //     "counterattackpower": '10'
+    // });
 
 
     //MAKE THE JARJAR BINX OBJECT
-    var JarJarBinx = $("img[data-src='assets/images/JarJarBinx.jpeg']").attr({
-        "name": 'JarJar Binx',
-        "healthpoints": '80',
-        "attackpower": '5',
-        "counterattackpower": '30'
-    });
+    // var JarJarBinx = $("img[data-src='assets/images/JarJarBinx.jpeg']").attr({
+    //     "name": 'JarJar Binx',
+    //     "healthpoints": '80',
+    //     "attackpower": '5',
+    //     "counterattackpower": '30'
+    // });
 
 
     //MAKE THE R2D2OBJECT
-    var R2D2 = $("img[data-src='assets/images/R2D2.jpeg']").attr({
+    // var R2D2 = $("img[data-src='assets/images/R2D2.jpeg']").attr({
+    //     "name": 'R2D2',
+    //     "healthpoints": '200',
+    //     "attackpower": '10',
+    //     "counterattackpower": '5'
+    // });
+
+// var characters{
+//     "Darth Maul": {
+//         "healthpoints": '200',
+//         "attackpower": '10',
+//         "counterattackpower": '5'
+//     }
+
+var characters = [
+    {
         "name": 'R2D2',
         "healthpoints": '200',
         "attackpower": '10',
-        "counterattackpower": '5'
+        "counterattackpower": '5',
+        "imageSrc": "assets/images/DarthMaul.jpeg"
+    },
+    {
+        "name": 'Darth Maul',
+        "healthpoints": '180',
+        "attackpower": '5',
+        "counterattackpower": '25',
+        "imageSrc": "assets/images/DarthMaul.jpeg"
+    },
+    {
+        "name": 'Han Solo',
+        "healthpoints": '150',
+        "attackpower": '10',
+        "counterattackpower": '10',
+        "imageSrc": "assets/images/DarthMaul.jpeg"
+    },
+    {
+        "name": 'JarJar Binx',
+        "healthpoints": '80',
+        "attackpower": '5',
+        "counterattackpower": '30',
+        "imageSrc": "assets/images/DarthMaul.jpeg"
+    }
+];
+
+    for(var iterator = 0; iterator < characters.length; iterator++)
+    {
+        var characterImg = $('<img>');
+        characterImg.attr('data-character_id', iterator);
+        characterImg.attr('data-health', characters[iterator].healthpoints);
+        characterImg.attr('data-attack', characters[iterator].attackpower);
+        characterImg.attr('data-counter', characters[iterator].counterattackpower);
+        characterImg.attr('data-name', characters[iterator].name);
+        characterImg.attr('src', characters[iterator].imageSrc);
+        characterImg.addClass("character");
+        $(".pic-container").append(characterImg);
+    }
+
+    $(".character").click(function() {
+        console.log($(this).data("name"));
+        console.log(characters[$(this).data("character_id")]);
     });
-
-
 
 
 
@@ -106,29 +161,29 @@ $(document).ready(function () {
     //ALL OTHER CHARACTERS SHOULD BE MOVED TO ENEMIES AVAILABLE TO ATTACK
 
     //ON CLICK DEFINE CHOSEN CHARACTER
-    $(".characters").click(function characterSelect() {
-        //PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
-        //TO ENEMY AREA
-        // this.css('border', '2px green solid');
-        for (i = 0; i <= image_sources.length - 1; i++) {
-            // if ($(".characters").attr("name") !== this.name) {
-                var myCharacter = this.name;
-                $("<img>").empty();
-                // console.log("Inside the loop");
-                // console.log($(".characters").attr("name"));
-                console.log(myCharacter);
-            // }
-        }
+    // $(".characters").click(function characterSelect() {
+    //     //PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
+    //     //TO ENEMY AREA
+    //     // this.css('border', '2px green solid');
+    //     for (i = 0; i <= image_sources.length - 1; i++) {
+    //         // if ($(".characters").attr("name") !== this.name) {
+    //             var myCharacter = this.name;
+    //             $("<img>").empty();
+    //             // console.log("Inside the loop");
+    //             // console.log($(".characters").attr("name"));
+    //             console.log(myCharacter);
+    //         // }
+    //     }
 
-        // console.log(  (this.name)  );
-        // if ($("img[name]") !== this.name) {
-        //     $("<img>").empty();
-        // }
-        // console.log($("img[name]"));
-        // console.log($(".characters").attr("name"));
+    //     // console.log(  (this.name)  );
+    //     // if ($("img[name]") !== this.name) {
+    //     //     $("<img>").empty();
+    //     // }
+    //     // console.log($("img[name]"));
+    //     // console.log($(".characters").attr("name"));
 
 
-    });
+    // });
 
 
 
