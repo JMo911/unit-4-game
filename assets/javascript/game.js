@@ -54,38 +54,38 @@ $(document).ready(function () {
     }
 
     //MAKE THE DARTH MAUL OBJECT
-    $("img[data-src='assets/images/DarthMaul.jpeg']").attr({
+    var DarthMaul = $("img[data-src='assets/images/DarthMaul.jpeg']").attr({
         "name": 'Darth Maul',
-        "Health-Points": '180',
-        "Attack-Power": '5',
-        "Counter-Attack-Power": '25'
+        "healthpoints": '180',
+        "attackpower": '5',
+        "counterattackpower": '25'
     });
 
 
     //MAKE THE HAN SOLO OBJECT
-    $("img[data-src='assets/images/HanSolo.jpeg']").attr({
+    var HanSolo = $("img[data-src='assets/images/HanSolo.jpeg']").attr({
         "name": 'Han Solo',
-        "Health-Points": '150',
-        "Attack-Power": '10',
-        "Counter-Attack-Power": '10'
+        "healthpoints": '150',
+        "attackpower": '10',
+        "counterattackpower": '10'
     });
 
 
     //MAKE THE JARJAR BINX OBJECT
-    $("img[data-src='assets/images/JarJarBinx.jpeg']").attr({
+    var JarJarBinx = $("img[data-src='assets/images/JarJarBinx.jpeg']").attr({
         "name": 'JarJar Binx',
-        "Health-Points": '80',
-        "Attack-Power": '5',
-        "Counter-Attack-Power": '30'
+        "healthpoints": '80',
+        "attackpower": '5',
+        "counterattackpower": '30'
     });
 
 
     //MAKE THE R2D2OBJECT
-    $("img[data-src='assets/images/R2D2.jpeg']").attr({
+    var R2D2 = $("img[data-src='assets/images/R2D2.jpeg']").attr({
         "name": 'R2D2',
-        "Health-Points": '200',
-        "Attack-Power": '10',
-        "Counter-Attack-Power": '5'
+        "healthpoints": '200',
+        "attackpower": '10',
+        "counterattackpower": '5'
     });
 
 
@@ -112,10 +112,11 @@ $(document).ready(function () {
         // this.css('border', '2px green solid');
         for (i = 0; i <= image_sources.length - 1; i++) {
             // if ($(".characters").attr("name") !== this.name) {
+                var myCharacter = this.name;
                 $("<img>").empty();
-                console.log("Inside the loop");
-                console.log($(".characters").attr("name"));
-                console.log(this.name);
+                // console.log("Inside the loop");
+                // console.log($(".characters").attr("name"));
+                console.log(myCharacter);
             // }
         }
 
