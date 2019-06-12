@@ -102,7 +102,7 @@ var characters = [
         "healthpoints": '200',
         "attackpower": '10',
         "counterattackpower": '5',
-        "imageSrc": "assets/images/DarthMaul.jpeg"
+        "imageSrc": "assets/images/R2D2.jpeg"
     },
     {
         "name": 'Darth Maul',
@@ -116,14 +116,14 @@ var characters = [
         "healthpoints": '150',
         "attackpower": '10',
         "counterattackpower": '10',
-        "imageSrc": "assets/images/DarthMaul.jpeg"
+        "imageSrc": "assets/images/HanSolo.jpeg"
     },
     {
         "name": 'JarJar Binx',
         "healthpoints": '80',
         "attackpower": '5',
         "counterattackpower": '30',
-        "imageSrc": "assets/images/DarthMaul.jpeg"
+        "imageSrc": "assets/images/JarJarBinx.jpeg"
     }
 ];
 
@@ -140,9 +140,21 @@ var characters = [
         $(".pic-container").append(characterImg);
     }
 
+//if character has diff name than selected character, then move
+
     $(".character").click(function() {
-        console.log($(this).data("name"));
-        console.log(characters[$(this).data("character_id")]);
+        var selectedCharacter = ($(this).data("name"));
+        (characters[$(this).data("character_id")]);
+        console.log(selectedCharacter);
+        console.log(characters);
+
+        for (i = 0; i < characters.length; i++) {
+            console.log($(".character").data("name"));
+        };
+
+        // if($(this).data("name") !== selectedCharacter) {
+        //     $('<img>').empty();
+        // }
     });
 
 
