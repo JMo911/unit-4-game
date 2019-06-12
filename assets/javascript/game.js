@@ -9,9 +9,9 @@ $(document).ready(function () {
 
     //PUTTING ALL INITIAL TEXT IN PLACE
     $('body,html').css({
-        "background-image": 'url("assets/images/millenium3.jpg")',
+        "background-image": 'url("assets/images/MilleniumBackground.jpg")',
         "background-repeat": "no-repeat",
-        "background-size": "100%"
+        "background-size": "100vw 100vh"
     });
     $("#title").text("Star Wars RPG!");
     $("#your-character").text("Your Character");
