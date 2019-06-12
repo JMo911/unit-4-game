@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function () {
     //IMAGE SOURCE ARRAY TO IMPORT CHARACTER IMAGES TO PIC-CONTAINER
     var image_sources = [
         "assets/images/DarthMaul.jpeg",
@@ -8,34 +8,35 @@ $( document ).ready(function() {
     ]
 
     //PUTTING ALL INITIAL TEXT IN PLACE
-    // $('body,html').css({
-    //     "background-image": 'url("assets/images/MilleniumBackground.jpeg")',
-    //     "height" : "100vh"
-    // });
+    $('body,html').css({
+        "background-image": 'url("assets/images/millenium3.jpg")',
+        "background-repeat": "no-repeat",
+        "background-size": "100%"
+    });
     $("#title").text("Star Wars RPG!");
     $("#your-character").text("Your Character");
     $("#available-enemies").text("Enemies available to Attack");
     $("#fight-section").text("Fight Section");
     $("#attack-button").text("Attack");
     $("#defender").text("Defender");
-    // $("h1").css('color', 'white');
+    $("h1").css('color', 'white');
 
 
-    
+
     //LOOP TO DISPLAY ALL CHARACTER IMAGES IN PIC-CONTAINER
 
-    for (i=0; i < image_sources.length; i++) {
-    var pic_div = $("<img>");
-    pic_div.addClass("characters");
-    pic_div.attr({
-        "data-src" : image_sources[i],
-        "src" : image_sources[i],
-    });
-    $("#pic-container").append(pic_div); 
-    pic_div.css( {
-        'height': '150px',
-        'border': '0.05em black solid',
-        'margin': '0.3em'
+    for (i = 0; i < image_sources.length; i++) {
+        var pic_div = $("<img>");
+        pic_div.addClass("characters");
+        pic_div.attr({
+            "data-src": image_sources[i],
+            "src": image_sources[i],
+        });
+        $("#pic-container").append(pic_div);
+        pic_div.css({
+            'height': '150px',
+            'border': '0.05em black solid',
+            'margin': '0.3em'
         })
 
     }
@@ -91,9 +92,27 @@ $( document ).ready(function() {
 
     //SELECT YOUR CHARACTER - USER CLICKS ON A CHARACTER
     //ALL OTHER CHARACTERS SHOULD BE MOVED TO ENEMIES AVAILABLE TO ATTACK
-    $(".characters").click( function game() {
-//PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
-        console.log(  (this.name)  );
+
+    //ON CLICK DEFINE CHOSEN CHARACTER
+    $(".characters").click(function characterSelect() {
+        //PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
+        //TO ENEMY AREA
+        // this.css('border', '2px green solid');
+        for (i = 0; i <= image_sources.length - 1; i++) {
+            // if ($(".characters").attr("name") !== this.name) {
+                $("<img>").empty();
+                console.log("Inside the loop");
+                console.log($(".characters").attr("name"));
+                console.log(this.name);
+            // }
+        }
+
+        // console.log(  (this.name)  );
+        // if ($("img[name]") !== this.name) {
+        //     $("<img>").empty();
+        // }
+        // console.log($("img[name]"));
+        // console.log($(".characters").attr("name"));
 
 
     });
@@ -101,5 +120,3 @@ $( document ).ready(function() {
 
 
 });
-
-
