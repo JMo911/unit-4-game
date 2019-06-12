@@ -40,10 +40,6 @@ $( document ).ready(function() {
 
     }
 
-
-
-
-
     //MAKE THE DARTH MAUL OBJECT
     $("img[data-src='assets/images/DarthMaul.jpeg']").attr({
         "name": 'Darth Maul',
@@ -67,7 +63,7 @@ $( document ).ready(function() {
         "name": 'JarJar Binx',
         "Health-Points": '80',
         "Attack-Power": '5',
-        "Counter-Attack Power": '30'
+        "Counter-Attack-Power": '30'
     });
 
 
@@ -76,7 +72,7 @@ $( document ).ready(function() {
         "name": 'R2D2',
         "Health-Points": '200',
         "Attack-Power": '10',
-        "Counter-Attack Power": '5'
+        "Counter-Attack-Power": '5'
     });
 
 
@@ -92,8 +88,12 @@ $( document ).ready(function() {
 
 
     //START THE GAME
-    $(".characters").click( function game() {
 
+    //SELECT YOUR CHARACTER - USER CLICKS ON A CHARACTER
+    //ALL OTHER CHARACTERS SHOULD BE MOVED TO ENEMIES AVAILABLE TO ATTACK
+    $(".characters").click( function game() {
+//PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
+        // console.log(img.name);
 
 
 
