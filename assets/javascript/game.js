@@ -41,8 +41,7 @@ $( document ).ready(function() {
     }
 
 
-    //START THE GAME
-    $(".characters").click( function game() {
+
 
 
     //MAKE THE DARTH MAUL OBJECT
@@ -92,7 +91,8 @@ $( document ).ready(function() {
 
 
 
-
+    //START THE GAME
+    $(".characters").click( function game() {
 
 
 
