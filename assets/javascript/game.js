@@ -129,6 +129,7 @@ var characters = [
 
     for(var iterator = 0; iterator < characters.length; iterator++)
     {
+        var charPicContainer = $('<div>').html('<p>' + characters[iterator].healthpoints + '</p>');
         var characterImg = $('<img>');
         characterImg.attr('data-character_id', iterator);
         characterImg.attr('data-health', characters[iterator].healthpoints);
@@ -137,17 +138,31 @@ var characters = [
         characterImg.attr('data-name', characters[iterator].name);
         characterImg.attr('src', characters[iterator].imageSrc);
         characterImg.addClass("character");
-        $(".pic-container").append(characterImg);
+        charPicContainer.append(characterImg);
+        $(".pic-container").append(charPicContainer);
+
         characterImg.css({
             'height': '150px',
             'border': '0.05em black solid',
-            'margin': '0.3em'
-        })
+            'margin': '0.3em',
+            
+        });
+        charPicContainer.css({
+            'position': 'relative'
+        });
+        charPicContainer.children("p").css({
+            'position': 'absolute',
+            'color': 'snow',
+            'background-color': 'darkblue',
+            'left': '40%',
+            'bottom': '0'
+        });
     }
 
 //if character has diff name than selected character, then move
 
-    $(".character").click(function() {
+
+    $(".character").click(function selectACharacter() {
         var selectedCharacter = ($(this).data("name"));
         (characters[$(this).data("character_id")]);
         // console.log(selectedCharacter);
@@ -158,13 +173,15 @@ var characters = [
     //    }
 
 
-
-
+        // if ($(".pic-container").children("img").data("name") !== selectedCharacter ) {
+        //     $(".pic-container").children("img").empty();
+        // };
+        //     console.log($(".pic-container").children("img").data("name"));
     //NEED TO LOOP THROUGH ALL IMAGES IN PIC CONTAINER AND LOG CHAR. NAMES
 
-
-
-        $(".pic-container img").each(function(){
+//ONCE CHARACTER IS SELECTED, REMOVE ALL OTHER CHARACTER PICS
+        
+        $(".pic-container img").each(function enemies(){
             var allNames = $(this).data("name");
            console.log(allNames);
            
