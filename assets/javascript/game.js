@@ -150,7 +150,7 @@ var characters = [
     $(".character").click(function() {
         var selectedCharacter = ($(this).data("name"));
         (characters[$(this).data("character_id")]);
-        console.log(selectedCharacter);
+        // console.log(selectedCharacter);
         // console.log(characters);
         //CODE WORKS, BUT EMPTIES EVERYTHING
     //    if ( $(".character").data("name") !== selectedCharacter) {
@@ -164,18 +164,19 @@ var characters = [
 
 
 
-
-
-
-        // for (i = 0; i < characters.length; i++) {
-        //     console.log( $(".pic-container img").data("name") );
-        // };
-
         $(".pic-container img").each(function(){
-            console.log($(this).data("name"));
+            var allNames = $(this).data("name");
+           console.log(allNames);
+           
+
+            // console.log(selectedCharacter);
+       
+            if ($(this).data("name") !== selectedCharacter){
+                $(".pic-container img").attr('enemy', 'true');
+            };
         }
         );
-
+        console.log(selectedCharacter);
 
         // if($(this).data("name") !== selectedCharacter) {
         //     $('<img>').empty();
