@@ -138,6 +138,11 @@ var characters = [
         characterImg.attr('src', characters[iterator].imageSrc);
         characterImg.addClass("character");
         $(".pic-container").append(characterImg);
+        characterImg.css({
+            'height': '150px',
+            'border': '0.05em black solid',
+            'margin': '0.3em'
+        })
     }
 
 //if character has diff name than selected character, then move
@@ -146,11 +151,31 @@ var characters = [
         var selectedCharacter = ($(this).data("name"));
         (characters[$(this).data("character_id")]);
         console.log(selectedCharacter);
-        console.log(characters);
+        // console.log(characters);
+        //CODE WORKS, BUT EMPTIES EVERYTHING
+    //    if ( $(".character").data("name") !== selectedCharacter) {
+    //     $(".pic-container").empty(characterImg);
+    //    }
 
-        for (i = 0; i < characters.length; i++) {
-            console.log($(".character").data("name"));
-        };
+
+
+
+    //NEED TO LOOP THROUGH ALL IMAGES IN PIC CONTAINER AND LOG CHAR. NAMES
+
+
+
+
+
+
+        // for (i = 0; i < characters.length; i++) {
+        //     console.log( $(".pic-container img").data("name") );
+        // };
+
+        $(".pic-container img").each(function(){
+            console.log($(this).data("name"));
+        }
+        );
+
 
         // if($(this).data("name") !== selectedCharacter) {
         //     $('<img>').empty();
