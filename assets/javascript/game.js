@@ -165,8 +165,11 @@ var characters = [
     $(".character").click(function selectACharacter() {
         var selectedCharacter = ($(this).data("name"));
         (characters[$(this).data("character_id")]);
+        
         // console.log(selectedCharacter);
         // console.log(characters);
+
+        
         //CODE WORKS, BUT EMPTIES EVERYTHING
     //    if ( $(".character").data("name") !== selectedCharacter) {
     //     $(".pic-container").empty(characterImg);
@@ -202,43 +205,6 @@ var characters = [
 
 
 
-
-
-
-
-
-
-
-
-    //START THE GAME
-
-    //SELECT YOUR CHARACTER - USER CLICKS ON A CHARACTER
-    //ALL OTHER CHARACTERS SHOULD BE MOVED TO ENEMIES AVAILABLE TO ATTACK
-
-    //ON CLICK DEFINE CHOSEN CHARACTER
-    // $(".characters").click(function characterSelect() {
-    //     //PULL THE NAME OF THE CHARACTER THAT THE USER CLICKS, THEN MOVE ALL CHARACTERS WITHOUT THAT NAME
-    //     //TO ENEMY AREA
-    //     // this.css('border', '2px green solid');
-    //     for (i = 0; i <= image_sources.length - 1; i++) {
-    //         // if ($(".characters").attr("name") !== this.name) {
-    //             var myCharacter = this.name;
-    //             $("<img>").empty();
-    //             // console.log("Inside the loop");
-    //             // console.log($(".characters").attr("name"));
-    //             console.log(myCharacter);
-    //         // }
-    //     }
-
-    //     // console.log(  (this.name)  );
-    //     // if ($("img[name]") !== this.name) {
-    //     //     $("<img>").empty();
-    //     // }
-    //     // console.log($("img[name]"));
-    //     // console.log($(".characters").attr("name"));
-
-
-    // });
 
 
 
