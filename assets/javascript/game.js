@@ -34,68 +34,7 @@ $(document).ready(function () {
         });
 
 
-
-    //LOOP TO DISPLAY ALL CHARACTER IMAGES IN PIC-CONTAINER
-
-    // for (i = 0; i < image_sources.length; i++) {
-    //     var pic_div = $("<img>");
-    //     pic_div.addClass("characters");
-    //     pic_div.attr({
-    //         "data-src": image_sources[i],
-    //         "src": image_sources[i],
-    //     });
-    //     $("#pic-container").append(pic_div);
-    //     pic_div.css({
-    //         'height': '150px',
-    //         'border': '0.05em black solid',
-    //         'margin': '0.3em'
-    //     })
-
-    // }
-
-
-    //MAKE THE DARTH MAUL OBJECT
-    // var DarthMaul = $("img[data-src='assets/images/DarthMaul.jpeg']").attr({
-    //     "name": 'Darth Maul',
-    //     "healthpoints": '180',
-    //     "attackpower": '5',
-    //     "counterattackpower": '25'
-    // });
-
-
-    //MAKE THE HAN SOLO OBJECT
-    // var HanSolo = $("img[data-src='assets/images/HanSolo.jpeg']").attr({
-    //     "name": 'Han Solo',
-    //     "healthpoints": '150',
-    //     "attackpower": '10',
-    //     "counterattackpower": '10'
-    // });
-
-
-    //MAKE THE JARJAR BINX OBJECT
-    // var JarJarBinx = $("img[data-src='assets/images/JarJarBinx.jpeg']").attr({
-    //     "name": 'JarJar Binx',
-    //     "healthpoints": '80',
-    //     "attackpower": '5',
-    //     "counterattackpower": '30'
-    // });
-
-
-    //MAKE THE R2D2OBJECT
-    // var R2D2 = $("img[data-src='assets/images/R2D2.jpeg']").attr({
-    //     "name": 'R2D2',
-    //     "healthpoints": '200',
-    //     "attackpower": '10',
-    //     "counterattackpower": '5'
-    // });
-
-// var characters{
-//     "Darth Maul": {
-//         "healthpoints": '200',
-//         "attackpower": '10',
-//         "counterattackpower": '5'
-//     }
-
+var selectedCharacter="";    
 var characters = [
     {
         "name": 'R2D2',
@@ -162,8 +101,9 @@ var characters = [
 //if character has diff name than selected character, then move
 
 
+
     $(".character").click(function selectACharacter() {
-        var selectedCharacter = ($(this).data("name"));
+        selectedCharacter = ($(this).data("name"));
         (characters[$(this).data("character_id")]);
         
         // console.log(selectedCharacter);
@@ -171,10 +111,11 @@ var characters = [
 
         
         //CODE WORKS, BUT EMPTIES EVERYTHING
-    //    if ( $(".character").data("name") !== selectedCharacter) {
+    //     function clearenemies(character) {
+    //    if ( $(".character").data("name") !== character) {
     //     $(".pic-container").empty(characterImg);
     //    }
-
+    // } clearenemies(selectedCharacter);
 
         // if ($(".pic-container").children("img").data("name") !== selectedCharacter ) {
         //     $(".pic-container").children("img").empty();
@@ -193,10 +134,11 @@ var characters = [
        
             if ($(this).data("name") !== selectedCharacter){
                 $(".pic-container img").attr('enemy', 'true');
+                console.log(selectedCharacter);
             };
         }
         );
-        console.log(selectedCharacter);
+        
 
         // if($(this).data("name") !== selectedCharacter) {
         //     $('<img>').empty();
