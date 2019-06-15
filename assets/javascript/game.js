@@ -33,7 +33,7 @@ $(document).ready(function () {
         'margin-right': '1em'
         });
 
-
+var enemeies = [];
 var selectedCharacter="";    
 var characters = [
     {
@@ -66,8 +66,13 @@ var characters = [
     }
 ];
 
+
+function renderCharacters(divLocation, characters) {
+    $(divLocation).empty();
+
     for(var iterator = 0; iterator < characters.length; iterator++)
     {
+        
         var charPicContainer = $('<div>').html('<p>' + characters[iterator].healthpoints + '</p>');
         var characterImg = $('<img>');
         characterImg.attr('data-character_id', iterator);
@@ -78,7 +83,7 @@ var characters = [
         characterImg.attr('src', characters[iterator].imageSrc);
         characterImg.addClass("character");
         charPicContainer.append(characterImg);
-        $(".pic-container").append(charPicContainer);
+        $(divLocation).append(charPicContainer);
 
         characterImg.css({
             'height': '150px',
@@ -97,14 +102,32 @@ var characters = [
             'bottom': '0'
         });
     }
+};
+renderCharacters("#pic-container", characters);
 
 //if character has diff name than selected character, then move
 
 
 
     $(".character").click(function selectACharacter() {
-        selectedCharacter = ($(this).data("name"));
-        (characters[$(this).data("character_id")]);
+        
+        if (!selectedCharacter) {
+            selectedCharacter = characters[$(this).data("character_id")];
+            renderCharacters("#pic-container", [selectedCharacter]);
+        
+            for(var i = 0; i < characters.length; i++) {
+                if (i !== $(this).data("character_id")) {
+                    enemeies.push(characters[i]);
+                }
+            }
+
+            console.log(enemeies);
+            renderCharacters("#available-enemies", enemeies);
+        //rerender top portion to just show my character & move other images to enemy area
+        }
+    
+
+        // console.log(selectedCharacter);
         
         // console.log(selectedCharacter);
         // console.log(characters);
@@ -127,14 +150,25 @@ var characters = [
         
         $(".pic-container img").each(function enemies(){
             var allNames = $(this).data("name");
-           console.log(allNames);
+            
+        //    console.log(allNames);
+        //    console.log("--------");
+        //    console.log(selectedCharacter);
+        // console.log($(this).data("name"));
            
 
             // console.log(selectedCharacter);
        
-            if ($(this).data("name") !== selectedCharacter){
-                $(".pic-container img").attr('enemy', 'true');
-                console.log(selectedCharacter);
+            if (allNames === selectedCharacter){
+                console.log("true");
+
+            // $(`.${selectedCharacter})`).attr('enemy', 'blue');
+            } else {
+                // $(".pic-container").children("<div>").empty();
+                console.log("false");
+                // $(".pic-container img").attr('enemy', 'true');
+                //  console.log(selectedCharacter);
+                //  console.log(allNames);
             };
         }
         );
@@ -144,10 +178,4 @@ var characters = [
         //     $('<img>').empty();
         // }
     });
-
-
-
-
-
-
 });
