@@ -113,7 +113,7 @@ renderCharacters("#pic-container", characters);
 
     $(".character").click(function selectCharacters() {
 
-        if (selectedCharacter != "") {
+        if (selectedCharacter) {
             console.log("something");
            defender = characters[$(this).data("character_id")];
            renderCharacters("#defender-pic-container", [defender]);
