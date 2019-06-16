@@ -33,8 +33,10 @@ $(document).ready(function () {
         'margin-right': '1em'
         });
 
-var enemeies = [];
-var selectedCharacter="";    
+var enemies = [];
+var defender = "";
+var selectedCharacter="";
+// var selectedEnemy=[];    
 var characters = [
     {
         "name": 'R2D2',
@@ -109,73 +111,40 @@ renderCharacters("#pic-container", characters);
 
 
 
-    $(".character").click(function selectACharacter() {
+    $(".character").click(function selectCharacters() {
+
+        if (selectedCharacter != "") {
+            console.log("something");
+           defender = characters[$(this).data("character_id")];
+           renderCharacters("#defender-pic-container", [defender]);
+           
+           
+   }
+   
+
+
         
-        if (!selectedCharacter) {
+        else if (!selectedCharacter) {
             selectedCharacter = characters[$(this).data("character_id")];
             renderCharacters("#pic-container", [selectedCharacter]);
         
             for(var i = 0; i < characters.length; i++) {
                 if (i !== $(this).data("character_id")) {
-                    enemeies.push(characters[i]);
+                    enemies.push(characters[i]);
                 }
             }
 
-            console.log(enemeies);
-            renderCharacters("#available-enemies", enemeies);
-        //rerender top portion to just show my character & move other images to enemy area
-        }
-    
-
-        // console.log(selectedCharacter);
-        
-        // console.log(selectedCharacter);
-        // console.log(characters);
-
-        
-        //CODE WORKS, BUT EMPTIES EVERYTHING
-    //     function clearenemies(character) {
-    //    if ( $(".character").data("name") !== character) {
-    //     $(".pic-container").empty(characterImg);
-    //    }
-    // } clearenemies(selectedCharacter);
-
-        // if ($(".pic-container").children("img").data("name") !== selectedCharacter ) {
-        //     $(".pic-container").children("img").empty();
-        // };
-        //     console.log($(".pic-container").children("img").data("name"));
-    //NEED TO LOOP THROUGH ALL IMAGES IN PIC CONTAINER AND LOG CHAR. NAMES
-
-//ONCE CHARACTER IS SELECTED, REMOVE ALL OTHER CHARACTER PICS
-        
-        $(".pic-container img").each(function enemies(){
-            var allNames = $(this).data("name");
             
-        //    console.log(allNames);
-        //    console.log("--------");
-        //    console.log(selectedCharacter);
-        // console.log($(this).data("name"));
-           
-
-            // console.log(selectedCharacter);
-       
-            if (allNames === selectedCharacter){
-                console.log("true");
-
-            // $(`.${selectedCharacter})`).attr('enemy', 'blue');
-            } else {
-                // $(".pic-container").children("<div>").empty();
-                console.log("false");
-                // $(".pic-container img").attr('enemy', 'true');
-                //  console.log(selectedCharacter);
-                //  console.log(allNames);
-            };
-        }
-        );
+            renderCharacters("#enemy-pic-container", enemies);
+        //rerender top portion to just show my character & move other images to enemy area
+        } 
         
 
-        // if($(this).data("name") !== selectedCharacter) {
-        //     $('<img>').empty();
-        // }
+
+    console.log(selectedCharacter);
+ 
+
+
     });
+    
 });
